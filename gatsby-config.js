@@ -13,6 +13,16 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
+    {
+      resolve : `gatsby-source-strapi`,
+      options: {
+        apiURL : 'https://young-savannah-76822.herokuapp.com',
+        contentTypes : [
+          `articles`,
+         ],
+         queryLimit: 1000,
+      },
+    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
