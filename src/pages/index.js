@@ -8,12 +8,16 @@ import SEO from "../components/seo"
 const IndexPage = ( {data} ) => (
   <Layout>
     <SEO title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
+
+
+    <h1>{data.allStrapiHome.edges[0].node.Title}</h1>
+    <p>{data.allStrapiHome.edges[0].node.Descripcion}</p>
+    <p>{data.allStrapiHome.edges[0].node.Imagen.url}</p>
+
+    <img src={data.allStrapiHome.edges[0].node.Imagen[0].url} />
 
     <ul>
-      {data.allStrapiArticles.edges.map(document => {
+      {data.allStrapiHome.edges.map(document => {
 
           return(
           <li>
@@ -35,12 +39,18 @@ export default IndexPage
 
 export const pageQuery = graphql`
 
-  query IndexQuery {
-    allStrapiArticles{
+
+
+  query HomeQuery{
+    allStrapiHome{
       edges{
         node{
           id
           Title
+          Descripcion
+          Imagen{
+            url
+          }
         }
       }
     }

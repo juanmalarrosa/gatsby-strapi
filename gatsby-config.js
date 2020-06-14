@@ -17,8 +17,12 @@ module.exports = {
       resolve : `gatsby-source-strapi`,
       options: {
         apiURL : 'https://young-savannah-76822.herokuapp.com',
+        //apiURL : 'http://localhost:1337',
         contentTypes : [
           `articles`,
+         ],
+         singleTypes : [
+           `home`
          ],
          queryLimit: 1000,
       },
